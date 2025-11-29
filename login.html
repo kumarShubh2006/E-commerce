@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style2.css">
+    <script>
+      function validate(form){
+      var username = form1.user.value;
+      var password = form1.pass.value;
+      if(username == "Shubham" && password === "Shubham") {
+      sessionStorage.setItem("loginUser", username);
+      TimeRanges(10);
+      alert("Success");
+      return true;
+      }
+      else{
+        alert("Invalid username or password");
+      return false;
+      }
+  }
+  </script>
+</head>
+
+<body>
+  <div class="parent">parent
+    <div class="login-container">
+      <div class="login">
+        <form action="index1.html" method="post" name="form1">
+          <h1>User Login </h1><br><br>
+          <strong>Username:</strong>
+          <input type="text" name="user"><br><br>
+          <strong>Password:</strong>
+          <input type="password" name="pass">
+          <br><br>
+          <button onclick="return validate(this.form)"><a href="index1.html">Submit</button>
+        </form>
+        <br><br>
+        <span>New to My Shop? <a href=Signup.html>Sign up</a></span>
+      </div>
+    </div>
+</body>
+
+</html>
