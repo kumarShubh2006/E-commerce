@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <div id ="user-display"></div>
+        <div id="user-display"></div>
         <h1>🛍️ MyShop KL University</h1>
         <nav>
             <a href="index.html">Home</a>
@@ -16,7 +16,7 @@
             <a href="login.html">login</a>
             <a href="laptop.html">Laptop</a>
             <a href="watches.html">Watches</a>
-             <a href="mobile.html">Mobiles</a>
+            <a href="mobile.html">Mobiles</a>
         </nav>
     </header>
 
@@ -25,24 +25,26 @@
         <p>Find the best deals on top products</p>
         <a href="product1.html" class="btn">Shop Me</a>
     </section>
+
     <section id="highlights">
-        <h1>Why to choose us ?</h1>
-        <ul type="null">
+        <h1>Why to choose us?</h1>
+        <ul>
             <li>✓ High Quality Products</li>
-            <li>✓ Best Price Gurantee</li>
-            <li>✓ Fast Secure delivery</li>
+            <li>✓ Best Price Guarantee</li>
+            <li>✓ Fast & Secure Delivery</li>
             <li>✓ 24/7 Customer Support</li>
-            <li>✓ Easy return and refund</li>
+            <li>✓ Easy Returns & Refund</li>
         </ul>
-    </section>
+    </section>
 
     <footer>
         <p>© 2025 MyShop. All Rights Reserved.</p>
     </footer>
+
     <script>
         let user = localStorage.getItem("loginUser");
-        if(user){
-        document.getElementById("user-display").innerText="Welcome, "+user;
+        if (user) {
+            document.getElementById("user-display").innerText = "Welcome, " + user;
         }
     </script>
 </body>
