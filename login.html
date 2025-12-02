@@ -4,43 +4,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Login</title>
   <link rel="stylesheet" href="style2.css">
-    <script>
-      function validate(form){
-      var username = form1.user.value;
-      var password = form1.pass.value;
-      if(username == "Shubham" && password === "Shubham") {
-      sessionStorage.setItem("loginUser", username);
-      TimeRanges(10);
-      alert("Success");
-      return true;
-      }
-      else{
+
+  <script>
+
+    // ------------ LOGIN VALIDATION --------------
+    function validate(form) {
+      let username = form.user.value;
+      let password = form.pass.value;
+
+      if (username === "Shubham" && password === "Shubham") {
+        sessionStorage.setItem("loginUser", username);
+        alert("Success");
+        window.location.href = "index1.html";   // redirect after login
+        return false; // prevent default form submission
+      } else {
         alert("Invalid username or password");
-      return false;
+        return false;
       }
-  }
+    }
+
+    // ------------ AUTO LOGOUT AFTER INACTIVITY --------------    
+    let inactivityTime = 60000; // 1 minute = 60000ms (change as needed)
+
+    let activityTimer;
+
+    function resetTimer() {
+      clearTimeout(activityTimer);
+      activityTimer = setTimeout(logoutUser, inactivityTime);
+    }
+
+    function logoutUser() {
+      alert("Logged out due to inactivity.");
+      sessionStorage.removeItem("loginUser");
+      window.location.href = "login.html";   // redirect back to login page
+    }
+
+    // Track user activity
+    window.onload = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeydown = resetTimer;
+
   </script>
 </head>
 
 <body>
-  <div class="parent">parent
+
+  <div class="parent">
     <div class="login-container">
       <div class="login">
-        <form action="index1.html" method="post" name="form1">
-          <h1>User Login </h1><br><br>
+
+        <form name="form1" onsubmit="return validate(this)">
+          <h1>User Login</h1><br>
+
           <strong>Username:</strong>
-          <input type="text" name="user"><br><br>
+          <input type="text" name="user" required><br><br>
+
           <strong>Password:</strong>
-          <input type="password" name="pass">
-          <br><br>
-          <button onclick="return validate(this.form)"><a href="index1.html">Submit</button>
+          <input type="password" name="pass" required><br><br>
+
+          <button type="submit">Submit</button>
         </form>
-        <br><br>
-        <span>New to My Shop? <a href=Signup.html>Sign up</a></span>
+
+        <br>
+        <span>New to My Shop? <a href="Signup.html">Sign up</a></span>
+
       </div>
     </div>
+  </div>
+
 </body>
 
 </html>
